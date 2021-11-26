@@ -5,20 +5,66 @@
     margin: 0 40px;
     @include flex(row, center, space-between);
 }
+
+.left-menu {
+    position: absolute;
+    height: 1400px;
+    width: 300px;
+    top: 0; 
+    left: -300px;
+    background-color: $white;  
+    transition: 0.3s ease;
+    z-index: 99;
+    .close-icon {
+        position: absolute;
+        top: 30px;
+        left: 45px;
+        font-size: 30px;
+        z-index: 99;
+    }
+    .m-links {
+        @include flex(column, center, center);
+        flex-wrap: wrap;
+        align-content: flex-start;
+        margin-top: 100px;
+        margin-left: 50px;
+        .m-link {
+            color: $darkGrayishBlue;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+    }
+    
+}
+.active {
+    left: 0px;
+    animation-duration: 0.3s;
+}
+
 .nav-right {
-    @include flex(row, center, space-between);
+    @include flex(row, center, space-between);    
+    .menu {
+        @include flex(row, center, space-between);
+        margin-right: 10px;
+        visibility: hidden;
+
+        @include mobile(768px){
+            visibility: visible;
+        } 
+    }
     .logo {
         margin-right: 60px;
-        .l-logo {
-
-        }
     }
     .links {
         .link {
             margin: 0 10px;
             text-decoration: none;
-            color: gray;
+            color: $darkGrayishBlue;
+            @include mobile(768px) {
+                visibility: hidden;
+            }
         }
+        
     }
 }
 
@@ -30,7 +76,6 @@
     }
     .avatar {
         width: 40px;
-
     }
 }
 
